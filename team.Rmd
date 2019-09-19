@@ -1,0 +1,42 @@
+---
+title: "Lab 2 Team File"
+author: "Mitchell Kazin and Adam VanGorp"
+date: "9/19/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem 1
+
+```{r,eval=FALSE}
+  recent_rating = choco[choco$Review.Date>2011,] # grabs data that is from 2011 and onward
+  unique(recent_rating$Company.Location) # NOTICE: how many countries are listed but how many levels are there? 
+  recent_rating$Company.Location = droplevels(recent_rating$Company.Location) #gets rid of unused levels in the new data
+  head(recent_rating) #displays first few rows of the new dataset
+  
+  cross_table = table(recent_rating$Review.Date,recent_rating$Company.Location) #organizes new data by location and review date
+  cross_table #displays the table created
+  which(cross_table[1,]!=0 & cross_table[2,]!=0 & cross_table[3,]!=0 & cross_table[4,]!=0 & cross_table[5,]!=0) # only shows rows that have value in every column
+  
+  france_recent = subset(recent_rating,Company.Location =='France') #grabs only France data
+  uk_recent = subset(recent_rating,Company.Location =='U.K.') #grabs only UK data
+  germany_recent = subset(recent_rating,Company.Location=='Germany') #grabs only Germany data
+  
+  par(mfrow=c(2,2)) # sets number of sublplots that will be displayed
+  
+  color1 = ifelse(france_recent$Rating >median(france_recent$Rating), 'blue', 'green') #colors higher ratings blue and lower ratings green
+  
+  plot(france_recent$Cocoa.Pct ~ france_recent$Review.Date,ylim=c(50,90),col=color1,pch=18,cex=1.5,xlab="Review Date", ylab= "Cocoa Percentage", main= "France") #plots the France data
+  legend('bottomright',legend=c('High Rating', 'Low Rating'),col=c('blue','green'),pch=18) #adds legends to explain the color
+  
+  color2 = ifelse(uk_recent$Rating >median(uk_recent$Rating), 'purple', 'red') #colors higher rtings purple and lower ratings red
+  plot(uk_recent$Cocoa.Pct ~ uk_recent$Review.Date,ylim=c(50,90),col=color2,pch=18,cex=1.5, xlab="Review Date", ylab= "Cocoa Percentage", main= "UK") #plots UK data
+  legend('bottomright',legend=c('High Rating', 'Low Rating'),col=c('purple','red'),pch=18) #adds legend
+  
+  color3 = ifelse(germany_recent$Rating > median(germany_recent$Rating), 'orange', 'yellow') #colors high ratings orange and lower yellow
+  plot(germany_recent$Cocoa.Pct ~ germany_recent$Review.Date,ylim=c(50,90),col=color3,pch=18,cex=1.5,xlab="Review Date", ylab= "Cocoa Percentage", main= "Germany") #rmany data g
+  legend('bottomright',legend=c('High Rating', 'Low Rating'),col=c('orange','yellow'),pch=18) #adds legend
+```
