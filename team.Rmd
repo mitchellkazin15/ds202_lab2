@@ -4,8 +4,9 @@ author: "Mitchell Kazin and Adam VanGorp"
 date: "9/19/2019"
 output: html_document
 ---
-Repository: https://github.com/mitchellkazin15/ds202_lab2
-
+Link: https://github.com/mitchellkazin15/ds202_lab2 <br>
+Owner username: mitchellkazin15 <br>
+Repository: ds202_lab2 <br>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
