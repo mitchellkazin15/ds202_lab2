@@ -9,6 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+  choco <- read.csv("https://raw.githubusercontent.com/lbchu/ds202_labs/master/choco.csv")
+  head(choco)
+```
+
 ## Problem 1
 
 ```{r,eval=FALSE}
@@ -40,3 +45,12 @@ knitr::opts_chunk$set(echo = TRUE)
   plot(germany_recent$Cocoa.Pct ~ germany_recent$Review.Date,ylim=c(50,90),col=color3,pch=18,cex=1.5,xlab="Review Date", ylab= "Cocoa Percentage", main= "Germany") #rmany data g
   legend('bottomright',legend=c('High Rating', 'Low Rating'),col=c('orange','yellow'),pch=18) #adds legend
 ```
+
+## Problem 3
+
+```{r}
+  rating_counts = table(choco$Review.Date)
+  barplot(rating_counts,xlab="Review Date", ylab= "Rating", main= "Ratings per year")
+```
+
+There has been a steady increase in ratings from 2006 to 2015 but then there's a steep decline.

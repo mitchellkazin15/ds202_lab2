@@ -42,3 +42,12 @@ knitr::opts_chunk$set(echo = TRUE)
   legend('bottomright',legend=c('High Rating', 'Low Rating'),col=c('orange','yellow'),pch=18) #adds legend
 ```
 
+## Problem 3
+
+```{r}
+  rating_counts = table(choco$Review.Date)
+  rating_counts
+  barplot(rating_counts,xlab="Review Date", ylab= "Rating", main= "Ratings per year")
+```
+
+There has been a steady increase in ratings from 2006 to 2015 but then there's a steep decline
