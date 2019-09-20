@@ -11,6 +11,11 @@ Repository: ds202_lab2 <br>
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+Adam VanGorp
+Mitch Kazin
+
+https://github.com/mitchellkazin15/ds202_lab2.git
+
 
 ```{r}
   choco <- read.csv("https://raw.githubusercontent.com/lbchu/ds202_labs/master/choco.csv")
