@@ -48,6 +48,9 @@ knitr::opts_chunk$set(echo = TRUE)
   plot(germany_recent$Cocoa.Pct ~ germany_recent$Review.Date,ylim=c(50,90),col=color3,pch=18,cex=1.5,xlab="Review Date", ylab= "Cocoa Percentage", main= "Germany") #rmany data g
   legend('bottomright',legend=c('High Rating', 'Low Rating'),col=c('orange','yellow'),pch=18) #adds legend
 ```
+## Problem 2
+
+The colors used for High and Low Rating should be the same for each visual.
 
 ## Problem 3
 
@@ -57,6 +60,25 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 There has been a steady increase in ratings from 2006 to 2015 but then there's a steep decline.
+
+## Problem 4
+
+``` {r}
+rating_counts = table(choco$Company.Location)
+rating_counts = subset(rating_counts, rating_counts > 30)
+sorted_rating_counts = sort(rating_counts, decreasing = TRUE)
+sorted_rating_counts
+USA = subset(choco$Rating, choco$Company.Location == 'U.S.A.')
+France = subset(choco$Rating, choco$Company.Location == 'France')
+Canada = subset(choco$Rating, choco$Company.Location == 'Canada')
+USA_avg_rating = mean(USA)
+France_avg_rating = mean(France)
+Canada_avg_rating = mean(Canada)
+USA_avg_rating
+France_avg_rating
+Canada_avg_rating                      
+```
+The average rating for the three countries with the most reviews are very similiar with the nice Canadians giving the highest average rating. 
 
 ## Problem 5
 
